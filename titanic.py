@@ -52,27 +52,31 @@ def remove_data_keys(data):
     for data_row in data:
         row = []
         for key in data_row:
-            print key
+            # print key
             row.append(data_row[key])
         data_matrix.append(row)
     return data_matrix
+
 
 data = normalize_data()
 matrix = remove_data_keys(data)
 
 ####################################################
-
-#
+iris = datasets.load_iris()
+# X = iris.data[:, :2]  # we only take the first two features.
 # X = matrix[:, :8]
-# print X
+print iris.data
+# print data
+# print matrix
+print type(data)
 
-survived = []
+survived = [] # Y: List of 1's 0's
 
 for row in matrix:
     survived.append(row[5])
 
-print survived
-#
+Y = survived
+
 # # # import some data to play with
 # # iris = datasets.load_iris()
 # # X = iris.data[:, :2]  # we only take the first two features.
